@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'detail_screen.dart';  // Ensure this file is correctly named and exists
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -7,6 +6,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  // List of recipes for display
   final List<String> recipes = [
     'Chocolate Cake',
     'Spaghetti Bolognese',
@@ -18,19 +18,19 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Recipe Book'),
+        title: Text('Recipe Book'), // Title of the app
       ),
       body: ListView.builder(
         itemCount: recipes.length,
         itemBuilder: (context, index) {
           return ListTile(
-            title: Text(recipes[index]),
+            title: Text(recipes[index]), // Displaying the recipe name
             onTap: () {
-              // Use named routes for navigation
+              // Navigate to DetailsScreen when a recipe is tapped
               Navigator.pushNamed(
                 context,
                 '/details',
-                arguments: recipes[index],  // Pass the selected recipe name as an argument
+                arguments: recipes[index],
               );
             },
           );
